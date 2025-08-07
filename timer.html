@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Timer Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #timer {
+      font-size: 48px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Live Timer</h1>
+  <div id="timer">00:00:00</div>
+
+  <script>
+    function pad(num) {
+      return num.toString().padStart(2, '0');
+    }
+
+    function updateTimer() {
+      const now = new Date();
+      const hours = pad(now.getHours());
+      const minutes = pad(now.getMinutes());
+      const seconds = pad(now.getSeconds());
+
+      document.getElementById("timer").textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    setInterval(updateTimer, 1000); // Update every second
+    updateTimer(); // Initial call
+  </script>
+</body>
+</html>
